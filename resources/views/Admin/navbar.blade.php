@@ -14,9 +14,9 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown" >
                 
-                <x-app-layout>
+                <x-app-layout  >
                 </x-app-layout>
               </li>
             </ul>
