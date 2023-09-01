@@ -15,7 +15,7 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/',[HomeController::class,'index']);
-
+Route::get('/redirect',[HomeController::class,'redirect']);
 
 Route::middleware([
     'auth:sanctum',
