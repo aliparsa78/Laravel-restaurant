@@ -31,11 +31,15 @@
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
         @include('Admin/navbar')
-        <!-- partial Content -->
         <div class="main-panel">
           <div class="content-wrapper">
-            @include('Admin.partial')
+            
+            @include('Admin/partial')
+
+            
           </div>
+          <!-- content-wrapper ends -->
+          @include('Admin/footer')
         </div>
 
         <!-- main-panel ends -->

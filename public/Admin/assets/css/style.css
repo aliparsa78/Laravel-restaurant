@@ -105,6 +105,13 @@
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
+#logo-title{
+  color: white;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
 /* === SCSS Compass Functions === */
 @-moz-keyframes flash {
   0% {
