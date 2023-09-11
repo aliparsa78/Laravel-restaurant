@@ -34,6 +34,7 @@
         <!-- partial Content -->
         <div class="main-panel">
           <div class="content-wrapper">
+            @include('Admin.partial')
           </div>
         </div>
 
