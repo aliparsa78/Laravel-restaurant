@@ -31,12 +31,20 @@
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
         @include('Admin/navbar')
-        <!-- partial Content -->
         <div class="main-panel">
           <div class="content-wrapper">
+<<<<<<< HEAD
             @include('Admin.partial')
             <i class="fab fa-user">User</i>
+=======
+            
+            @include('Admin/partial')
+
+            
+>>>>>>> Admin
           </div>
+          <!-- content-wrapper ends -->
+          @include('Admin/footer')
         </div>
 
         <!-- main-panel ends -->
