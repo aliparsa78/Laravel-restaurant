@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/redirect',[HomeController::class,'redirect']);
+Route::resource('/customer',CustomerController::class);
+Route::post('/customer_block',[CustomerController::class,'block']);
 
 Route::middleware([
     'auth:sanctum',
