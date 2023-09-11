@@ -56,9 +56,22 @@ class CustomerController extends Controller
         //
     }
 
-    public function block()
+    public function block(Request $request)
     {
-        
+        $customer_id =  $request->customer_id;
+        $customer = User::find($customer_id)->first();
+        $customer->user_type = '3';
+        $customer->update();
+        return back();
+    }
+
+    public function unblock(Request $request)
+    {
+        $customer_id =  $request->customer_id;
+        $customer = User::find($customer_id)->first();
+        $customer->user_type = '0';
+        $customer->update();
+        return back();
     }
 
     /**

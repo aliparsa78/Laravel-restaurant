@@ -19,6 +19,7 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/redirect',[HomeController::class,'redirect']);
 Route::resource('/customer',CustomerController::class);
 Route::post('/customer_block',[CustomerController::class,'block']);
+Route::post('/customer_unblock',[CustomerController::class,'unblock']);
 
 Route::middleware([
     'auth:sanctum',

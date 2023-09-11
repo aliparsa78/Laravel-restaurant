@@ -33,6 +33,7 @@
                             <th> Register Date </th>
                             <th> Status </th>
                             <th> Block Customer </th>
+                            <th> UnBlock </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -46,17 +47,24 @@
                             </td>
                             <td>{{$customer->created_at}}</td>
                             @if($customer->user_type == 0)
-                            <td>Active</td>
-                            @elseif($customer->user_type==2)
-                            <td>Blocked</td>
+                            <td class="text-success">Active</td>
+                            @elseif($customer->user_type==3)
+                            <td class="text-danger">Blocked</td>
                             @endif
                             <td> 
                                 <form action="{{url('customer_block')}}" method="POST">
                                     @csrf 
-                                    <input type="hidden" value="{{$customer->id}}">
-                                    <input type="submit" value="block">
+                                    <input type="hidden" name="customer_id" value="{{$customer->id}}">
+                                    <input type="submit" class="btn btn-danger" value="block">
                                 </form>
                             </td>
+                            <td> 
+                                  <form action="{{url('customer_unblock')}}" method="POST">
+                                      @csrf 
+                                      <input type="hidden" name="customer_id" value="{{$customer->id}}">
+                                      <input type="submit" class="btn btn-info" value="unblock">
+                                  </form>
+                              </td>
                           </tr>
                           @endforeach
                         </tbody>
