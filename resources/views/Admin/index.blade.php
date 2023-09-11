@@ -35,6 +35,7 @@
         <div class="main-panel">
           <div class="content-wrapper">
             @include('Admin.partial')
+            <i class="fab fa-user">User</i>
           </div>
         </div>
 
