@@ -32,8 +32,7 @@
                             <th> Profile </th>
                             <th> Register Date </th>
                             <th> Status </th>
-                            <th> Block Customer </th>
-                            <th> UnBlock </th>
+                            <th> Block & UnBlock</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -51,6 +50,15 @@
                             @elseif($customer->user_type==3)
                             <td class="text-danger">Blocked</td>
                             @endif
+                            @if($customer->user_type == 3)
+                            <td> 
+                                <form action="{{url('customer_unblock')}}" method="POST">
+                                    @csrf 
+                                    <input type="hidden" name="customer_id" value="{{$customer->id}}">
+                                    <input type="submit" class="btn btn-info" value="unblock">
+                                </form>
+                            </td>
+                            @else
                             <td> 
                                 <form action="{{url('customer_block')}}" method="POST">
                                     @csrf 
@@ -58,13 +66,7 @@
                                     <input type="submit" class="btn btn-danger" value="block">
                                 </form>
                             </td>
-                            <td> 
-                                  <form action="{{url('customer_unblock')}}" method="POST">
-                                      @csrf 
-                                      <input type="hidden" name="customer_id" value="{{$customer->id}}">
-                                      <input type="submit" class="btn btn-info" value="unblock">
-                                  </form>
-                              </td>
+                            @endif
                           </tr>
                           @endforeach
                         </tbody>

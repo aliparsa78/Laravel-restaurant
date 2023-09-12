@@ -4,9 +4,7 @@
         </div>
         <ul class="nav">
           
-          <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-          </li>
+          
           <li class="nav-item menu-items">
             <a class="nav-link" href="/redirect">
               <span class="menu-icon">
