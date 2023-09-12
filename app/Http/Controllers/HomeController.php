@@ -21,7 +21,8 @@ class HomeController extends Controller
 
             return view('Home.index');
         }else{
-            return view('Block.index');
+            $user_id = Auth::user()->id;
+            return view('Block.index',compact('user_id'));
         }
         
         

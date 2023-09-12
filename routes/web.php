@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Middleware\CheckUser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,9 @@ use App\Http\Controllers\CustomerController;
 */
 
 
-Route::get('/',[HomeController::class,'index']);
 Route::get('/redirect',[HomeController::class,'redirect']);
+
+Route::get('/',[HomeController::class,'index']);
 Route::resource('/customer',CustomerController::class);
 Route::post('/customer_block',[CustomerController::class,'block']);
 Route::post('/customer_unblock',[CustomerController::class,'unblock']);
