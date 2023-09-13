@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 
 class CustomerController extends Controller
 {
@@ -56,7 +57,13 @@ class CustomerController extends Controller
         //
     }
 
-    public function block(Request $request)
+    public function block()
+    {
+        $user_id = Auth::user()->id;
+        return view('Block.index',compact('user_id'));
+    }
+
+    public function blockCustomer(Request $request)
     {
         $customer_id =  $request->customer_id;
         $customer = User::find($customer_id)->first();
