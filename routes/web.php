@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Middleware\CheckUser;
+use App\Http\Controllers\FoodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +21,8 @@ Route::middleware(['auth','checkuser'])->group(function(){
     Route::post('/customer_block',[CustomerController::class,'blockCustomer']);
     Route::post('/customer_unblock',[CustomerController::class,'unblock']);
     Route::get('/block',[CustomerController::class,'block']);
+    // Food route
+    Route::resource('/food',FoodController::class);
 });
 
 
