@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-<<<<<<< HEAD
-=======
 use App\Http\Middleware\CheckUser;
->>>>>>> Foods
+
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FoodController;
 /*

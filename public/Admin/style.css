@@ -1,0 +1,15 @@
+#title{
+    display: flex;
+    justify-content: space-between;
+}
+#title a{
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.forms .form-group input,
+.forms .form-group textarea,
+.forms .form-group select option
+{
+    color:#fff;
+}

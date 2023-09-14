@@ -21,7 +21,10 @@
           <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Foods table</h4>
+                    <div id="title" >
+                        <h4 class="card-title">Foods table</h4>
+                        <a href="{{route('food.create')}}" class="btn btn-info">Add Food</a>
+                    </div>
                     <div class="table-responsive">
                       <table class="table table-dark">
                         <thead>
@@ -41,8 +44,10 @@
                                 <td>{{$food->id}}</td>
                                 <td>{{$food->name}}</td>
                                 <td>{{$food->description}}</td>
-                                <td>{{$food->price}}</td>
-                                <td>{{$food->price}}</td>
+                                <td>$ {{$food->price}}</td>
+                                <td>
+                                    <img src="{{asset('Admin/Foods/Images/'.$food->image)}}"  alt="">
+                                </td>
                                 <td>{{$food->image}}</td>
                                 <td>{{$food->status}}</td>
                                 <td>

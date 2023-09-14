@@ -21,7 +21,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Foods.create');
     }
 
     /**
@@ -29,7 +29,21 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $food = new Foods();
+        $food->name = $request->name;
+        $food->description = $request->image;
+        $food->price = $request->price;
+        $food->status = $request->status;
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('Admin/Foods/Images',$imagename);
+            $food->image = $imagename;
+        }else{
+            return back()->with('danger','Image not selected');
+        }
+        $food->save();
+        return redirect('/food');
     }
 
     /**
