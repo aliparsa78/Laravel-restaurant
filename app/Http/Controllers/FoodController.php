@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Foods;
 
 class FoodController extends Controller
 {
@@ -11,7 +12,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        return "yes";
+        $foods = Foods::get();
+        return view('Admin.Foods.index',compact('foods'));
     }
 
     /**
