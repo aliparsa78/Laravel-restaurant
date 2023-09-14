@@ -35,6 +35,7 @@
                             <th> Price </th>
                             <th> Image </th>
                             <th> Status </th>
+                            <th> Edit </th>
                             <th> Delete</th>
                           </tr>
                         </thead>
@@ -48,8 +49,18 @@
                                 <td>
                                     <img src="{{asset('Admin/Foods/Images/'.$food->image)}}"  alt="">
                                 </td>
-                                <td>{{$food->image}}</td>
-                                <td>{{$food->status}}</td>
+                                @if($food->status == 1)
+                                <td>
+                                    Active
+                                </td>
+                                @else
+                                <td>
+                                    Deactive
+                                </td>
+                                @endif
+                                <td>
+                                    <a href="{{route('food.edit',$food->id)}}">Edit</a>
+                                </td>
                                 <td>
                                     <a href="">Delete</a>
                                 </td>

@@ -31,7 +31,7 @@ class FoodController extends Controller
     {
         $food = new Foods();
         $food->name = $request->name;
-        $food->description = $request->image;
+        $food->description = $request->description;
         $food->price = $request->price;
         $food->status = $request->status;
         if($request->hasFile('image')){
@@ -59,7 +59,8 @@ class FoodController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $food = Foods::find($id);
+        return view('Admin.Foods.edit',compact('food'));
     }
 
     /**
@@ -67,7 +68,20 @@ class FoodController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $food = Foods::find($id);
+        $food->name = $request->name;
+        $food->description = $request->description;
+        $food->price = $request->price;
+        $food->status = $request->status;
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('Admin/Foods/Images',$imagename);
+            $food->image = $imagename;
+        }
+        $food->update();
+        return redirect('/food')->with('success','Food updated successfuly !');
+        
     }
 
     /**
