@@ -6,6 +6,7 @@ use App\Http\Middleware\CheckUser;
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\ChefController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,9 @@ Route::middleware(['auth','checkuser'])->group(function(){
     Route::get('/block',[CustomerController::class,'block']);
     // Food route
     Route::resource('/food',FoodController::class);
+
+    // Chef route
+    Route::resource('/chef',ChefController::class);
 });
 
 
