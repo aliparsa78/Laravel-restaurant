@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Foods;
+use File;
 
 class FoodController extends Controller
 {
@@ -43,7 +44,7 @@ class FoodController extends Controller
             return back()->with('danger','Image not selected');
         }
         $food->save();
-        return redirect('/food');
+        return redirect('/food')->with('success','Food added successfuly !');
     }
 
     /**
@@ -89,6 +90,12 @@ class FoodController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $food = Foods::find($id);
+        $image_path = public_path('Admin/Foods/Images/'.$food->image);
+        if(File::exists($image_path)){
+            File::delete($image_path);
+        }
+        $food->delete();
+        return back()->with('success','Food deleted successfuly !');
     }
 }

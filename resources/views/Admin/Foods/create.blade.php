@@ -40,7 +40,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputCity1">Price</label>
-                        <input type="text" name="price" class="form-control" id="exampleInputCity1" placeholder="Location">
+                        <input type="text" name="price" class="form-control" id="exampleInputCity1" placeholder="Price">
                       </div>
                       
                       <div class="form-group">

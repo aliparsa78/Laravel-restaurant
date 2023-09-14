@@ -19,8 +19,20 @@
         <div class="main-panel">
           <div class="content-wrapper">
           <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
+            <div class="card">
+              <div class="card-body">
+                    @if(Session()->has('success'))
+                          <div class="alert alert-success">
+                              <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button> -->
+                              <h5 class="text-center" style="font-weight: bold">{{Session::get('success')}}</h5>
+                          </div>
+                      @endif
+                      @if(Session()->has('faild'))
+                          <div class="alert alert-danger">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                              <h5 class="text-center" style="font-weight: bold">{{Session::get('faild')}}</h5>
+                          </div>
+                      @endif
                     <div id="title" >
                         <h4 class="card-title">Foods table</h4>
                         <a href="{{route('food.create')}}" class="btn btn-info">Add Food</a>
@@ -59,10 +71,14 @@
                                 </td>
                                 @endif
                                 <td>
-                                    <a href="{{route('food.edit',$food->id)}}">Edit</a>
+                                    <a href="{{route('food.edit',$food->id)}}" class="btn btn-info">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="">Delete</a>
+                                    <form action="{{route('food.destroy',$food->id)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                    </form>
                                 </td>
                             </tr>
                            @endforeach
