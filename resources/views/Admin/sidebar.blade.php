@@ -34,7 +34,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('chef')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
+                <i class="fa fa-user"></i>
               </span>
               <span class="menu-title">Chef</span>
             </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Chef;
 
 class ChefController extends Controller
 {
@@ -11,7 +12,8 @@ class ChefController extends Controller
      */
     public function index()
     {
-        return view('/Admin.Chef.index');
+        $chefs = Chef::get();
+        return view('Admin.Chef.index',compact('chefs'));
     }
 
     /**
@@ -19,7 +21,7 @@ class ChefController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Chef.create');
     }
 
     /**

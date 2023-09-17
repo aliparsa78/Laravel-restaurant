@@ -14,3 +14,6 @@
     <link rel="stylesheet" href="admin/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">

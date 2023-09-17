@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Corona Admin</title>
+
     @include('Admin.link')
   </head>
   <body>
@@ -21,22 +22,43 @@
           <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Customer table</h4>
+                    <div id="title">
+                        <h4 class="card-title">Chef table</h4>
+                        <a href="{{route('chef.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> Add Chef</a>
+                    </div>
                     <div class="table-responsive">
                       <table class="table table-dark">
                         <thead>
                           <tr>
-                            <th> customer id </th>
+                            <th> Chef id </th>
                             <th> First name </th>
+                            <th> last name </th>
                             <th> Email </th>
                             <th> Profile </th>
-                            <th> Register Date </th>
-                            <th> Status </th>
-                            <th> Block & UnBlock</th>
+                            <th> Address </th>
+                            <th> Phone </th>
+                            <th> Salary </th>
+                            <th> Role </th>
+                            <th> Start Protocol</th>
+                            <th> End Protocol</th>
                           </tr>
                         </thead>
                         <tbody>
-                           
+                            @foreach($chefs as $chef)
+                            <tr>
+                                <td>{{$chef->id}}</td>
+                                <td>{{$chef->name}}</td>
+                                <td>{{$chef->lastname}}</td>
+                                <td>{{$chef->email}}</td>
+                                <td>{{$chef->profile}}</td>
+                                <td>{{$chef->address}}</td>
+                                <td>{{$chef->phone}}</td>
+                                <td>{{$chef->salary}}</td>
+                                <td>{{$chef->role}}</td>
+                                <td>{{$chef->start_protocol}}</td>
+                                <td>{{$chef->end_protocol}}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                       </table>
                     </div>

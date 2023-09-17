@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('role')->nullable();
             $table->string('salary')->nullable();
+            $table->string('profile')->nullable();
             $table->string('start_protocol')->nullable();
             $table->string('end_protocol')->nullable();
             $table->timestamps();
