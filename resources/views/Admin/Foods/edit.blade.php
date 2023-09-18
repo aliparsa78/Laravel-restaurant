@@ -36,7 +36,7 @@
                         <textarea class="form-control color-white" name="description" value="{{$food->description}}" rows="4">{{$food->description}}</textarea>
                       </div>
                       <div class="form-group">
-                          <img src="{{asset('Admin/Foods/Images/'.$food->image)}}"  style="width: 100px; margin-bottom: 1rem"> <br>
+                          <img src="{{asset('Admin/Images/Foods/'.$food->image)}}"  style="width: 100px; margin-bottom: 1rem"> <br>
                         <label>Upload Image</label> <br>
 
                         <input type="file" name="image" class="" style="border: 1px solid gray; width: 100%;">

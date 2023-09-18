@@ -26,33 +26,72 @@
                     <h4 class="card-title">Adding Chefs </h4>
                     <form method="Post" action="{{route('chef.store')}}"  class="forms" enctype="multipart/form-data">
                         @csrf
-                      <div class="form-group">
-                        <label for="exampleInputName1">Chef Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name" >
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputName1">Chef Name</label>
+                              <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name" >
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputName1">Last Name</label>
+                              <input type="text" name="lastname" class="form-control" id="exampleInputName1" placeholder="Last Name" >
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputCity1">Email</label>
+                              <input type="email" name="email" class="form-control" id="exampleInputCity1" placeholder="Email">
+                            </div>
+                          </div>
+                        </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Address</label>
+                            <input type="text" name="address" class="form-control" id="exampleInputCity1" placeholder="Address">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Phone</label>
+                            <input type="text" name="phone" class="form-control" id="exampleInputCity1" placeholder="Phone">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Role</label>
+                            <input type="text" name="role" class="form-control" id="exampleInputCity1" placeholder="Role as">
+                          </div>
+                        </div>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Last Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name" >
-                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Salary</label>
+                            <input type="text" name="salary" class="form-control" id="exampleInputCity1" placeholder="Salary">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Start Protocol</label>
+                            <input type="date" name="start_protocol" class="form-control" placeholder="Start Protocol" >
+                          </div>
+                        </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputCity1">End Protocol</label>
+                              <input type="date" name="end_protocol" class="form-control" placeholder="End Protocol" >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputCity1">Profile</label>
+                          <input type="file" name="profile" class="form-control" >
+                        </div>
                       
-                      <div class="form-group">
-                        <label for="exampleInputCity1">email</label>
-                        <input type="text" name="price" class="form-control" id="exampleInputCity1" placeholder="Price">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputCity1">profile</label>
-                        <input type="text" name="price" class="form-control" id="exampleInputCity1" placeholder="Price">
-                      </div>
                       
-                      <div class="form-group">
-                        <label for="exampleSelectGender">status</label>
-                        <select class="form-control text-white" name="status" id="exampleSelectGender" >
-                          <option value="1">Active</option>
-                          <option value="0">DeActive</option>
-                        </select>
-                      </div>
-                      
-                     
                       <input type="submit" class="btn btn-primary me-2" value="Submit">
                     </form>
                   </div>

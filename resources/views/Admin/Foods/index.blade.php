@@ -59,7 +59,7 @@
                                 <td>{{$food->description}}</td>
                                 <td>$ {{$food->price}}</td>
                                 <td>
-                                    <img src="{{asset('Admin/Foods/Images/'.$food->image)}}"  alt="">
+                                    <img src="{{asset('Admin/images/Foods/'.$food->image)}}"  alt="">
                                 </td>
                                 @if($food->status == 1)
                                 <td>

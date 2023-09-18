@@ -38,7 +38,7 @@ class FoodController extends Controller
         if($request->hasFile('image')){
             $image = $request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
-            $request->image->move('Admin/Foods/Images',$imagename);
+            $request->image->move('Admin/Images/Foods/',$imagename);
             $food->image = $imagename;
         }else{
             return back()->with('danger','Image not selected');
@@ -77,7 +77,7 @@ class FoodController extends Controller
         if($request->hasFile('image')){
             $image = $request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
-            $request->image->move('Admin/Foods/Images',$imagename);
+            $request->image->move('Admin/Images/Foods/',$imagename);
             $food->image = $imagename;
         }
         $food->update();

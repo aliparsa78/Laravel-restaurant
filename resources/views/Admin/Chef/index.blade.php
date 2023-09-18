@@ -50,7 +50,9 @@
                                 <td>{{$chef->name}}</td>
                                 <td>{{$chef->lastname}}</td>
                                 <td>{{$chef->email}}</td>
-                                <td>{{$chef->profile}}</td>
+                                <td>
+                                  <img src="{{asset('Admin/images/Chef/'.$chef->profile)}}" alt="">
+                                </td>
                                 <td>{{$chef->address}}</td>
                                 <td>{{$chef->phone}}</td>
                                 <td>{{$chef->salary}}</td>

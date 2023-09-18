@@ -29,7 +29,27 @@ class ChefController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chef = new Chef();
+        $chef->name = $request->name;
+        $chef->lastname = $request->lastname;
+        $chef->email = $request->email;
+        $chef->address = $request->address;
+        $chef->phone = $request->phone;
+        $chef->role = $request->role;
+        $chef->salary = $request->salary;
+        $chef->start_protocol = $request->start_protocol;
+        $chef->end_protocol = $request->end_protocol;
+        if($request->hasFile('profile')){
+            $image = $request->profile;
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->profile->move('Admin/Images/Chef/',$imagename);
+            $chef->profile = $imagename;
+        }else{
+            return back()->with('danger','Image not selected');
+        }
+        $chef->save();
+        return redirect('/chef')->with('success','Chef added succesfuly !');
+
     }
 
     /**
