@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Chef;
+use File;
 
 class ChefController extends Controller
 {
@@ -81,6 +82,12 @@ class ChefController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $chef = Chef::find($id)->first();
+        $profile_path = "Admin/Images/Chef/".$chef->profile;
+        if(File::exists($profile_path)){
+            File::delete($profile_path);
+        }
+        $chef->delete();
+        return back()->with('success','Chef deleted successfuly');
     }
 }

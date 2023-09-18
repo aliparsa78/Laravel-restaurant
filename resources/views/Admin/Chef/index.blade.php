@@ -22,6 +22,18 @@
           <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                  @if(Session()->has('success'))
+                          <div class="alert alert-success">
+                              <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button> -->
+                              <h5 class="text-center" style="font-weight: bold">{{Session::get('success')}}</h5>
+                          </div>
+                      @endif
+                      @if(Session()->has('faild'))
+                          <div class="alert alert-danger">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                              <h5 class="text-center" style="font-weight: bold">{{Session::get('faild')}}</h5>
+                          </div>
+                      @endif
                     <div id="title">
                         <h4 class="card-title">Chef table</h4>
                         <a href="{{route('chef.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> Add Chef</a>
@@ -41,6 +53,8 @@
                             <th> Role </th>
                             <th> Start Protocol</th>
                             <th> End Protocol</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -59,6 +73,18 @@
                                 <td>{{$chef->role}}</td>
                                 <td>{{$chef->start_protocol}}</td>
                                 <td>{{$chef->end_protocol}}</td>
+                                <td><a href="{{route('chef.edit',$chef->id)}}" class="btn btn-info">
+                                  Edit
+                                  <!-- <i class="fa fa-edit text-info "></i> -->
+                                </a>
+                                </td>
+                                <td>
+                                  <form action="{{route('chef.destroy',$chef->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="delete" class="btn btn-danger">
+                                  </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
