@@ -66,7 +66,8 @@ class ChefController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $chef = Chef::find($id);
+        return view('Admin/Chef/edit',compact('chef'));
     }
 
     /**
@@ -74,7 +75,24 @@ class ChefController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $chef = Chef::find($id);
+        $chef->name = $request->name;
+        $chef->lastname = $request->lastname;
+        $chef->email = $request->email;
+        $chef->address = $request->address;
+        $chef->phone = $request->phone;
+        $chef->role = $request->role;
+        $chef->salary = $request->salary;
+        $chef->start_protocol = $request->start_protocol;
+        $chef->end_protocol = $request->end_protocol;
+        if($request->hasFile('profile')){
+            $image = $request->profile;
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->profile->move('Admin/Images/Chef/',$imagename);
+            $chef->profile = $imagename;
+        }
+        $chef->update();
+        return redirect('/chef')->with('success','Chef Updated succesfuly !');
     }
 
     /**
