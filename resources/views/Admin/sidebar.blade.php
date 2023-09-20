@@ -36,16 +36,16 @@
               <span class="menu-icon">
                 <i class="fa fa-user"></i>
               </span>
-              <span class="menu-title">Chef</span>
+              <span class="menu-title">Chefs</span>
             </a>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="{{url('slider')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
-              <span class="menu-title">Chefs</span>
+              <span class="menu-title">Slider</span>
             </a>
           </li>
           <li class="nav-item menu-items">
