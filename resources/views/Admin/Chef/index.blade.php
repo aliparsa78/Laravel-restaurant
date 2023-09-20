@@ -67,7 +67,7 @@
                                 <td>
                                   <img src="{{asset('Admin/images/Chef/'.$chef->profile)}}" alt="">
                                 </td>
-                                <td>{{$chef->address}}</td>
+                                <td>{{$chef->address}}   </td>
                                 <td>{{$chef->phone}}</td>
                                 <td>{{$chef->salary}}</td>
                                 <td>{{$chef->role}}</td>
