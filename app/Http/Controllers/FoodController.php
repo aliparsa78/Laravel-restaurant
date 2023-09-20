@@ -91,7 +91,7 @@ class FoodController extends Controller
     public function destroy(string $id)
     {
         $food = Foods::find($id);
-        $image_path = public_path('Admin/Foods/Images/'.$food->image);
+        $image_path = public_path('Admin/Images/Foods/'.$food->image);
         if(File::exists($image_path)){
             File::delete($image_path);
         }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Slider;
 
 class SlideController extends Controller
 {
@@ -11,7 +12,8 @@ class SlideController extends Controller
      */
     public function index()
     {
-        //
+        $sliders = Slider::get();
+        return view('Admin.Slider.index',compact('sliders'));
     }
 
     /**
@@ -19,7 +21,7 @@ class SlideController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Slider.create');
     }
 
     /**
@@ -27,7 +29,19 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slid = new Slider();
+        $slid->name = $request->name;
+        $slid->information = $request->information;
+        $slid->status = $request->status;
+
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('Admin/Images/Slider',$imagename);
+            $slid->image = $imagename;
+        }
+        $slid->save();
+        return redirect('/slider')->with('success','Slider added successfuly !');
     }
 
     /**

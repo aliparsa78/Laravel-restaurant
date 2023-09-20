@@ -7,6 +7,7 @@ use App\Http\Middleware\CheckUser;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ChefController;
+use App\Http\Controllers\SlideController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,9 @@ Route::middleware(['auth','checkuser'])->group(function(){
 
     // Chef route
     Route::resource('/chef',ChefController::class);
+
+    // Slider
+    Route::resource('/slider',SlideController::class);
 });
 
 
