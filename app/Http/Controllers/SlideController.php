@@ -57,7 +57,8 @@ class SlideController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $slider = Slider::find($id);
+        return view('Admin.Slider.edit',compact('slider'));
     }
 
     /**
@@ -65,7 +66,19 @@ class SlideController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $slid = Slider::find($id);
+        $slid->name = $request->name;
+        $slid->information = $request->information;
+        $slid->status = $request->status;
+
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('Admin/Images/Slider',$imagename);
+            $slid->image = $imagename;
+        }
+        $slid->update();
+        return redirect('/slider')->with('success','Slider updated successfuly !');
     }
 
     /**
