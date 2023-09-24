@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,8 @@ Route::middleware(['auth','checkuser'])->group(function(){
     Route::resource('/slider',SlideController::class);
     Route::post('/slider.deactive',[SlideController::class,'deactive'])->name('slider.deactive');
     Route::post('/slider.active',[SlideController::class,'active'])->name('slider.active');
+    // Reservation part
+    Route::resource('/reservation',ReservationController::class);
 });
 
 
