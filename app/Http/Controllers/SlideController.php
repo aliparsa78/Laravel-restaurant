@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use File;
 
 class SlideController extends Controller
 {
@@ -81,11 +82,35 @@ class SlideController extends Controller
         return redirect('/slider')->with('success','Slider updated successfuly !');
     }
 
+    public function deactive(Request $request)
+    {
+        $id = $request->id;
+        $slider = Slider::where('id',$id)->first();
+        $slider->status = 0;
+        $slider->update();
+        return back()->with('success','Slider blocked !');
+    }
+    public function active(Request $request)
+    {
+        $id = $request->id;
+        $slider = Slider::where('id',$id)->first();
+        $slider->status = 1;
+        $slider->update();
+        return back()->with('success','Slider un blocked !');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $slide = Slider::find($id);
+        $image_path = "Admin/Images/Slider/".$slide->image;
+        if(File::exists($image_path))
+        {
+            File::delete($image_path);
+        }
+        $slide->delete();
+        return back()->with('success','Slider Deleted Successfuly !');
     }
 }

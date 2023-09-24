@@ -40,7 +40,7 @@
                     <div class="table-responsive">
                       <table class="table table-dark">
                         <thead>
-                          <tr>
+                          <tr class="text-center">
                             <th> Id </th>
                             <th> Food Name </th>
                             <th> Description </th>
@@ -52,7 +52,7 @@
                         </thead>
                         <tbody>
                            @foreach($sliders as $slide)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{$slide->id}}</td>
                                 <td>{{$slide->name}}</td>
                                 <td>{{$slide->information}}</td>
@@ -60,12 +60,22 @@
                                     <img src="{{asset('Admin/images/Slider/'.$slide->image)}}"  alt="">
                                 </td>
                                 @if($slide->status == 1)
-                                <td>
-                                    Active
+                                <td >
+                                    <h5 class="text-success">Active</h5>
+                                    <form action="{{route('slider.deactive')}}" method="POST">
+                                      @csrf
+                                      <input type="hidden" name ="id" value="{{$slide->id}}">
+                                      <input type="submit" value="DeActive" class="btn btn-warning">
+                                    </form>
                                 </td>
                                 @else
                                 <td>
-                                    Deactive
+                                    <h5 class="text-danger">Deactive</h5>
+                                    <form action="{{route('slider.active')}}" method="POST">
+                                      @csrf
+                                      <input type="hidden" name ="id" value="{{$slide->id}}">
+                                      <input type="submit" value="Active" class="btn btn-success">
+                                    </form>
                                 </td>
                                 @endif
                                 <td>

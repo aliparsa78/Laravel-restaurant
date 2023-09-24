@@ -33,6 +33,8 @@ Route::middleware(['auth','checkuser'])->group(function(){
 
     // Slider
     Route::resource('/slider',SlideController::class);
+    Route::post('/slider.deactive',[SlideController::class,'deactive'])->name('slider.deactive');
+    Route::post('/slider.active',[SlideController::class,'active'])->name('slider.active');
 });
 
 
