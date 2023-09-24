@@ -392,7 +392,8 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-form">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" action="{{url('reservation')}}" method="post">
+                            @csrf
                           <div class="row">
                             <div class="col-lg-12">
                                 <h4>Table Reservation</h4>
@@ -414,7 +415,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <select value="number-guests" name="number-guests" id="number-guests">
+                                <select value="number-guests" name="gust_number" id="number-guests">
                                     <option value="number-guests">Number Of Guests</option>
                                     <option name="1" id="1">1</option>
                                     <option name="2" id="2">2</option>

@@ -37,9 +37,13 @@ Route::middleware(['auth','checkuser'])->group(function(){
     Route::post('/slider.deactive',[SlideController::class,'deactive'])->name('slider.deactive');
     Route::post('/slider.active',[SlideController::class,'active'])->name('slider.active');
     // Reservation part
-    Route::resource('/reservation',ReservationController::class);
+    Route::resource('/reserve',ReservationController::class);
 });
 
+// Customer Logined 
+Route::middleware(['auth','customer'])->group(function(){
+    Route::post('reservation',[ReservationController::class,'store']);
+});
 
 Route::get('/',[HomeController::class,'index']);
 

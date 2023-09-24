@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Reservation;
 
 class ReservationController extends Controller
 {
@@ -11,7 +12,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reserves = Reservation::get();
+        return view('Admin.Reservation.index',compact('reserves'));
     }
 
     /**
@@ -27,7 +29,16 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reserve = new Reservation();
+        $reserve->name = $request->name;
+        $reserve->email = $request->email;
+        $reserve->phone = $request->phone;
+        $reserve->gust_number = $request->gust_number;
+        $reserve->date = $request->date;
+        $reserve->time = $request->time;
+        $reserve->message = $request->message;
+        $reserve->save();
+        return back()->with('success','Your Reservation Saved successfuly !');
     }
 
     /**
