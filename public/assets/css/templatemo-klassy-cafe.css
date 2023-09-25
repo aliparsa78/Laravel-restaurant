@@ -922,24 +922,10 @@ menu
   overflow: hidden;
 }
 
-.card1 {
-  background-image: url(../images/menu-item-01.jpg);
-}
-.card2 {
-  background-image: url(../images/menu-item-02.jpg);
-}
-.card3 {
-  background-image: url(../images/menu-item-03.jpg);
-}
-.card4 {
-  background-image: url(../images/menu-item-04.jpg);
-}
-.card5 {
-  background-image: url(../images/menu-item-05.jpg);
-}
+
 
 .info {
-  position: relative;
+  position: absolute;
   width: 100%;
   background-color: #fb5849;
   border: 1px solid #fb5849;
@@ -969,15 +955,14 @@ menu
 
 #menu .price h6 {
   position: absolute;
+
   width: 70px;
   height: 70px;
-  background-color: #fb5849;
   font-size: 20px;
   font-weight: 700;
   color: #fff;
   border-radius: 3px;
   text-align: center;
-  line-height: 70px;
 }
 
 #menu .card .main-text-button {
@@ -1061,7 +1046,7 @@ chefs
 */
 
 #chefs {
-  padding-top: 120px;
+  padding-top: 10px;
 }
 
 #chefs .section-heading {

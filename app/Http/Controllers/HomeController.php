@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use App\Models\Foods;
 use Auth;
 class HomeController extends Controller
 {
     function index()
     {
         $slider = Slider::where('status','1')->get();
-        
-        return view('Home.index',compact('slider'));
+        $foods = Foods::where('status','1')->get();
+        return view('Home.index',compact('slider','foods'));
         
     }
 
