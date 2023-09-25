@@ -54,7 +54,10 @@ class ReservationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $reserve = Reservation::find($id);
+        $reserve->status = 0;
+        $reserve->update();
+        return back()->with('success','Customer Checkouted Successfuly !');
     }
 
     /**
@@ -70,6 +73,8 @@ class ReservationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $reserve = Reservation::find($id);
+        $reserve->delete();
+        return back()->with('success','Reservation Destroied successfuly !');
     }
 }

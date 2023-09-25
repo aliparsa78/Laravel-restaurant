@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Slider;
 use Auth;
 class HomeController extends Controller
 {
     function index()
     {
-        return view('Home.index');
+        $slider = Slider::where('status','1')->get();
+        
+        return view('Home.index',compact('slider'));
         
     }
 

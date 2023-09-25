@@ -47,7 +47,8 @@
                             <th> Guest Number </th>
                             <th> Date </th>
                             <th> Time </th>
-                            <th> Edit </th>
+                            <th> Status </th>
+                            <th> Checkout </th>
                             <th> Delete</th>
                           </tr>
                         </thead>
@@ -57,18 +58,27 @@
                                 <td>{{$reserve->id}}</td>
                                 <td>{{$reserve->name}}</td>
                                 <td>{{$reserve->email}}</td>
-                                <td>$ {{$reserve->phone}}</td>
-                                <td>$ {{$reserve->gust_number}}</td>
-                                <td>$ {{$reserve->date}}</td>
-                                <td>$ {{$reserve->time}}</td>
+                                <td>{{$reserve->phone}}</td>
+                                <td>{{$reserve->gust_number}} Guest</td>
+                                <td>{{$reserve->date}}</td>
+                                <td>{{$reserve->time}}</td>
+                                @if($reserve->status == 1)
                                 <td>
-                                    <a href="{{route('reserve.edit',$reserve->id)}}" class="btn btn-info">Edit</a>
+                                  <h5 class="text-success">Reserved</h5>
+                                </td>
+                                @else
+                                <td>
+                                  <h5 class="text-warning">Checkouted</h5>
+                                </td>
+                                @endif
+                                <td>
+                                    <a href="{{route('reserve.edit',$reserve->id)}}" class="btn btn-info">Checkout</a>
                                 </td>
                                 <td>
                                     <form action="{{route('reserve.destroy',$reserve->id)}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                        <input type="submit" onclick="return(confirm('Do you wan to delete Reservation ?'))" class="btn btn-danger" value="Delete">
                                     </form>
                                 </td>
                             </tr>
