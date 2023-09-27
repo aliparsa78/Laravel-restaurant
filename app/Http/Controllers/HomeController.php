@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Foods;
+use App\Models\Chef;
 use Auth;
 class HomeController extends Controller
 {
@@ -12,7 +13,8 @@ class HomeController extends Controller
     {
         $slider = Slider::where('status','1')->get();
         $foods = Foods::where('status','1')->get();
-        return view('Home.index',compact('slider','foods'));
+        $chefs = Chef::get();
+        return view('Home.index',compact('slider','foods','chefs'));
         
     }
 
