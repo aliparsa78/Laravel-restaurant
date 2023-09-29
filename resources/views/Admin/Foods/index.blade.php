@@ -62,12 +62,12 @@
                                     <img src="{{asset('Admin/images/Foods/'.$food->image)}}"  alt="">
                                 </td>
                                 @if($food->status == 1)
-                                <td>
-                                    Active
+                                <td class="text-warning">
+                                    Menu
                                 </td>
                                 @else
-                                <td>
-                                    Deactive
+                                <td class="text-success">
+                                    Meals
                                 </td>
                                 @endif
                                 <td>

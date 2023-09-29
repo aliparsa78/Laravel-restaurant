@@ -34,6 +34,15 @@
                         <label for="exampleTextarea1">Description</label>
                         <textarea class="form-control color-white" name="description" id="exampleTextarea1" rows="4"></textarea>
                       </div>
+
+                      <div class="form-group">
+                        <label for="exampleSelectGender">For</label>
+                        <select class="form-control text-white" name="for" id="exampleSelectGender" >
+                          <option value="b">Breakfast</option>
+                          <option value="l">Lunch</option>
+                          <option value="d">Dinner</option>
+                        </select>
+                      </div>
                       <div class="form-group">
                         <label>Upload Image</label> <br>
                         <input type="file" name="image" class="" style="border: 1px solid gray; width: 100%;">
@@ -46,8 +55,8 @@
                       <div class="form-group">
                         <label for="exampleSelectGender">status</label>
                         <select class="form-control text-white" name="status" id="exampleSelectGender" >
-                          <option value="1">Active</option>
-                          <option value="0">DeActive</option>
+                          <option value="1">Menu</option>
+                          <option value="0">Meals</option>
                         </select>
                       </div>
                       

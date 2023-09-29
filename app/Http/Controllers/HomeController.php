@@ -14,7 +14,8 @@ class HomeController extends Controller
         $slider = Slider::where('status','1')->get();
         $foods = Foods::where('status','1')->get();
         $chefs = Chef::get();
-        return view('Home.index',compact('slider','foods','chefs'));
+        $meals = Foods::where('status','0')->get(); // for meals 
+        return view('Home.index',compact('slider','foods','chefs','meals'));
         
     }
 
