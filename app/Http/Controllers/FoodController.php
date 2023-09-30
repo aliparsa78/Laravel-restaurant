@@ -35,6 +35,7 @@ class FoodController extends Controller
         $food->description = $request->description;
         $food->price = $request->price;
         $food->status = $request->status;
+        $food->for = $request->for;
         if($request->hasFile('image')){
             $image = $request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();

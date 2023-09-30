@@ -12,10 +12,12 @@ class HomeController extends Controller
     function index()
     {
         $slider = Slider::where('status','1')->get();
-        $foods = Foods::where('status','1')->get();
+        $subsliders = Foods::where('status','1')->get();// For slider
         $chefs = Chef::get();
-        $meals = Foods::where('status','0')->get(); // for meals 
-        return view('Home.index',compact('slider','foods','chefs','meals'));
+        $brackfast = Foods::where('status','0')->where('for','b')->get(); // for meals brackfast 
+        $lunches = Foods::where('status','0')->where('for','l')->get(); // for meals lunch 
+        $dinner = Foods::where('status','0')->where('for','d')->get(); // for meals dinner 
+        return view('Home.index',compact('slider','subsliders','chefs','lunches','brackfast','dinner'));
         
     }
 

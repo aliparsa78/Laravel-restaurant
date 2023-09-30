@@ -12,7 +12,7 @@
         <div class="menu-item-carousel">
             <div class="col-lg-12">
                 <div class="owl-menu-item owl-carousel">
-                @foreach($foods as $food)
+                @foreach($subsliders as $food)
                     <div class="item">
                         <div class='card card'>
                             <div class="img">
